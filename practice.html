@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Practice – Perfect Score</title>
+  <meta name="description" content="IELTS-style practice questions with accuracy tracking and detailed review." />
+  <link rel="stylesheet" href="style.css" />
+  <script defer src="practice.js"></script>
+</head>
+<body>
+
+<!-- =========================
+     NAVBAR
+     ========================= -->
+<header class="navbar">
+  <div class="nav-inner">
+    <a href="index.html" class="brand" aria-label="Go to homepage">
+      <img id="siteLogo" src="logo.png" alt="Perfect Score logo" />
+    </a>
+
+    <nav class="nav" aria-label="Primary">
+      <a href="roadmap.html">Roadmap</a>
+      <a href="dashboard.html">Dashboard</a>
+      <a href="vocabulary.html">Vocabulary</a>
+      <a href="resources.html">Resources</a>
+      <button id="themeToggle" class="btn btn-ghost icon-btn" type="button" aria-label="Toggle dark mode">
+        🌙
+      </button>
+    </nav>
+  </div>
+</header>
+
+<!-- =========================
+     PAGE INTRO
+     ========================= -->
+<section class="section">
+  <div class="container">
+    <div class="breadcrumb">
+  Dashboard <span>→</span> Practice
+</div>
+    <h2>Practice Questions</h2>
+    <p>
+      Apply what you learned in the lessons.
+      Focus on understanding mistakes rather than rushing for speed.
+    </p>
+    <p class="muted">
+      One question at a time. Accuracy first.
+    </p>
+    <p class="muted">
+  New here? Start with one full session.
+  Review mistakes carefully — that’s where improvement happens.
+</p>
+  </div>
+</section>
+
+<!-- =========================
+     PRACTICE AREA
+     ========================= -->
+<section class="section">
+  <div class="container">
+
+    <!-- ACTIVE QUESTION CARD -->
+    <div class="card col-12" id="quizCard">
+      <div class="stack-sm">
+        <p class="muted" id="progressText">
+          Question 1 of 10
+        </p>
+
+        <h3 id="qTitle">Question</h3>
+        <p id="qText">
+          Loading question…
+        </p>
+      </div>
+
+      <!-- OPTIONS -->
+      <div id="optionsWrap" class="stack-sm" style="margin-top:18px;">
+        <!-- Buttons injected by practice.js -->
+      </div>
+
+      <!-- ACTIONS -->
+      <div class="row" style="margin-top:22px;">
+        <span class="muted">
+          Choose the best answer
+        </span>
+        <button id="skipBtn" class="btn" type="button">
+          Skip
+        </button>
+      </div>
+    </div>
+
+    <!-- =========================
+         RESULT SUMMARY
+         ========================= -->
+    <div class="card col-12" id="resultCard" style="display:none; margin-top:28px;">
+      <h3>Session summary</h3>
+
+      <div class="stack-sm" style="margin-top:14px;">
+        <p id="scoreText"></p>
+        <p id="statsText" class="muted"></p>
+      </div>
+
+      <div style="margin-top:20px;">
+        <h4>Review incorrect & skipped questions</h4>
+        <p class="muted">
+          Understanding why an answer is wrong matters more than the score.
+        </p>
+
+        <div id="reviewWrap" class="stack-sm" style="margin-top:12px;">
+          <!-- Review injected by practice.js -->
+        </div>
+      </div>
+
+      <div class="row" style="margin-top:24px;">
+        <a href="practice.html" class="btn btn-primary">
+          Practice again
+        </a>
+        <a href="dashboard.html" class="btn">
+          Back to dashboard
+        </a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- =========================
+     FOOTER
+     ========================= -->
+<footer class="footer">
+  <div class="container center">
+    <p>© 2026 Perfect Score. Accuracy builds confidence.</p>
+  </div>
+</footer>
+
+<script src="theme.js"></script>
+</body>
+</html>
