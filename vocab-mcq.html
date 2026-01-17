@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Vocabulary MCQs – Perfect Score</title>
+  <link rel="stylesheet" href="style.css" />
+  <script defer src="vocab-mcq.js"></script>
+</head>
+<body>
+
+<header class="navbar">
+  <div class="nav-container">
+    <a href="index.html" class="logo">
+      <img src="logo.png" alt="Perfect Score logo">
+    </a>
+    <nav>
+      <a href="vocabulary.html">Vocabulary</a>
+      <a href="dashboard.html">Dashboard</a>
+    </nav>
+  </div>
+</header>
+
+<main class="container">
+  <h1>Vocabulary MCQs</h1>
+  <p class="muted">Quick practice. Stats saved automatically.</p>
+
+  <div class="card" id="mcqCard">
+    <h3 id="wordTitle">Word</h3>
+    <p id="promptText">Loading...</p>
+    <div id="mcqOptions"></div>
+
+    <div class="row" style="margin-top:16px;">
+      <span id="mcqProgress" class="muted"></span>
+      <button class="btn-outline" id="mcqSkip" type="button">Skip</button>
+    </div>
+  </div>
+
+  <div class="card" id="mcqResult" style="display:none; margin-top:20px;">
+    <h3>Result</h3>
+    <p id="mcqScore"></p>
+    <p class="muted" id="mcqTotals"></p>
+    <a class="btn-primary" href="vocab-mcq.html">Retry</a>
+    <a class="btn-outline" href="vocabulary.html">Back</a>
+  </div>
+</main>
+
+<footer class="footer">
+  <p>© 2026 Perfect Score</p>
+</footer>
+
+</body>
+</html>
