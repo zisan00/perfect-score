@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Flashcards – Perfect Score</title>
+  <meta name="description" content="Flashcards for IELTS vocabulary using active recall and spaced repetition." />
+  <link rel="stylesheet" href="style.css" />
+  <script defer src="flashcards.js"></script>
+</head>
+<body>
+
+<!-- =========================
+     NAVBAR
+     ========================= -->
+<header class="navbar">
+  <div class="nav-inner">
+    <a href="index.html" class="brand" aria-label="Go to homepage">
+      <img id="siteLogo" src="logo.png" alt="Perfect Score logo" />
+    </a>
+
+    <nav class="nav" aria-label="Primary">
+      <a href="roadmap.html">Roadmap</a>
+      <a href="dashboard.html">Dashboard</a>
+      <a href="vocabulary.html">Vocabulary</a>
+      <a href="resources.html">Resources</a>
+      <button
+        id="themeToggle"
+        class="btn btn-ghost icon-btn"
+        type="button"
+        aria-label="Toggle dark mode"
+      >
+        🌙
+      </button>
+    </nav>
+  </div>
+</header>
+
+<!-- =========================
+     PAGE INTRO
+     ========================= -->
+<section class="section"><div class="breadcrumb">
+  Dashboard <span>→</span> Vocabulary <span>→</span> Flashcards
+</div>
+
+    <h2>Flashcards</h2>
+    <p>
+      Flashcards train <strong>active recall</strong>, which is essential
+      for long-term vocabulary retention.
+    </p>
+    <p class="muted">
+      Think of the meaning first.  
+      Only reveal the answer when you’re ready.
+    </p>
+  </div>
+</section>
+
+<!-- =========================
+     FLASHCARD WORKSPACE
+     ========================= -->
+<section class="section">
+  <div class="container">
+
+    <!-- MAIN FLASHCARD -->
+    <div class="flash-wrap" id="fcCard">
+
+      <div
+        class="flash"
+        id="flashcard"
+        tabindex="0"
+        aria-label="Flashcard. Click to reveal answer."
+      >
+        <div class="flash-face flash-front" id="fcFront">
+          Loading…
+        </div>
+        <div class="flash-face flash-back" id="fcBack">
+          <!-- Answer injected by flashcards.js -->
+        </div>
+      </div>
+
+      <!-- HINT / META -->
+      <p class="muted" id="fcHint" style="margin-top:12px;">
+        Try to recall the meaning before revealing.
+      </p>
+
+      <!-- SHOW ANSWER -->
+      <div style="margin-top:18px;">
+        <button
+          id="showBtn"
+          class="btn btn-primary"
+          type="button"
+        >
+          Show answer
+        </button>
+      </div>
+
+      <!-- GRADING BUTTONS -->
+      <div
+        class="flash-actions"
+        id="gradeBtns"
+        style="display:none;"
+      >
+        <button id="againBtn" class="btn" type="button">
+          Again (1)
+        </button>
+        <button id="goodBtn" class="btn" type="button">
+          Good (2)
+        </button>
+        <button id="easyBtn" class="btn" type="button">
+          Easy (3)
+        </button>
+      </div>
+
+      <!-- META INFO -->
+      <p class="muted" id="fcMeta" style="margin-top:14px;">
+        Use keyboard: 1 = Again, 2 = Good, 3 = Easy
+      </p>
+    </div>
+
+    <!-- =========================
+         EMPTY STATE
+         ========================= -->
+    <div
+      class="card col-12 center"
+      id="fcEmpty"
+      style="display:none; margin-top:28px;"
+    >
+      <h3>No flashcards due</h3>
+      <p class="muted">
+        You’ve reviewed all scheduled cards for now.
+        Come back later or practice vocabulary MCQs.
+      </p>
+
+      <div style="margin-top:20px;">
+        <a href="vocab-mcq.html" class="btn btn-primary">
+          Go to Vocabulary MCQs
+        </a>
+        <a href="dashboard.html" class="btn">
+          Back to dashboard
+        </a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- =========================
+     FOOTER
+     ========================= -->
+<footer class="footer">
+  <div class="container center">
+    <p>© 2026 Perfect Score. Recall builds mastery.</p>
+  </div>
+</footer>
+
+<script src="theme.js"></script>
+</body>
+</html>
