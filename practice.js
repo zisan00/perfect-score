@@ -1,36 +1,37 @@
-// ===============================
-// IELTS PRACTICE ENGINE
-// ===============================
+/* =====================================================
+   PRACTICE QUESTIONS ENGINE
+   ===================================================== */
 
 const QUESTIONS = [
   {
     text: "What is the main purpose of the passage?",
     options: [
       "To explain a process",
-      "To criticize a theory",
+      "To criticise a theory",
       "To describe an experiment",
       "To tell a personal story"
     ],
     correct: 0
   },
   {
-    text: "Which statement best reflects the author’s view?",
+    text: "Which statement best reflects the author’s opinion?",
     options: [
-      "The issue is irrelevant",
-      "The issue is complex",
       "The issue is solved",
-      "The issue is exaggerated"
+      "The issue is complex",
+      "The issue is exaggerated",
+      "The issue is irrelevant"
     ],
     correct: 1
   }
 ];
 
 let index = 0;
-let correctCount = 0;
-let wrongCount = 0;
-let skippedCount = 0;
+let correct = 0;
+let wrong = 0;
+let skipped = 0;
 let review = [];
 
+// DOM elements
 const qText = document.getElementById("qText");
 const optionsWrap = document.getElementById("optionsWrap");
 const progressText = document.getElementById("progressText");
@@ -41,6 +42,7 @@ const statsText = document.getElementById("statsText");
 const reviewWrap = document.getElementById("reviewWrap");
 const skipBtn = document.getElementById("skipBtn");
 
+// Render question
 function renderQuestion() {
   const q = QUESTIONS[index];
   progressText.textContent = `Question ${index + 1} of ${QUESTIONS.length}`;
@@ -49,64 +51,68 @@ function renderQuestion() {
 
   q.options.forEach((opt, i) => {
     const btn = document.createElement("button");
-    btn.className = "btn option";
+    btn.className = "btn";
     btn.textContent = opt;
-    btn.onclick = () => answer(i);
+    btn.onclick = () => submitAnswer(i);
     optionsWrap.appendChild(btn);
   });
 }
 
-function answer(choice) {
+// Submit answer
+function submitAnswer(choice) {
   const q = QUESTIONS[index];
+
   if (choice === q.correct) {
-    correctCount++;
+    correct++;
   } else {
-    wrongCount++;
+    wrong++;
     review.push({
-      q: q.text,
-      your: q.options[choice],
+      question: q.text,
+      chosen: q.options[choice],
       correct: q.options[q.correct]
     });
   }
   next();
 }
 
-function skip() {
-  skippedCount++;
+// Skip
+function skipQuestion() {
+  skipped++;
+  const q = QUESTIONS[index];
   review.push({
-    q: QUESTIONS[index].text,
-    your: "Skipped",
-    correct: QUESTIONS[index].options[QUESTIONS[index].correct]
+    question: q.text,
+    chosen: "Skipped",
+    correct: q.options[q.correct]
   });
   next();
 }
 
+// Next question
 function next() {
   index++;
-  if (index >= QUESTIONS.length) finish();
-  else renderQuestion();
+  index < QUESTIONS.length ? renderQuestion() : finish();
 }
 
+// Finish session
 function finish() {
   quizCard.style.display = "none";
   resultCard.style.display = "block";
 
-  const total = QUESTIONS.length;
-  scoreText.textContent =
-    `Correct: ${correctCount}, Wrong: ${wrongCount}, Skipped: ${skippedCount}`;
-
-  const accuracy = Math.round((correctCount / total) * 100);
+  scoreText.textContent = `Correct: ${correct}, Wrong: ${wrong}, Skipped: ${skipped}`;
+  const accuracy = Math.round((correct / QUESTIONS.length) * 100);
   statsText.textContent = `Accuracy: ${accuracy}%`;
 
   reviewWrap.innerHTML = "";
-  review.forEach(r => {
+  review.forEach(item => {
     const div = document.createElement("div");
-    div.innerHTML = `<strong>Q:</strong> ${r.q}<br>
-                     <strong>Your answer:</strong> ${r.your}<br>
-                     <strong>Correct:</strong> ${r.correct}`;
+    div.innerHTML = `
+      <strong>Question:</strong> ${item.question}<br>
+      <strong>Your answer:</strong> ${item.chosen}<br>
+      <strong>Correct answer:</strong> ${item.correct}
+    `;
     reviewWrap.appendChild(div);
   });
 }
 
-if (skipBtn) skipBtn.onclick = skip;
+skipBtn?.addEventListener("click", skipQuestion);
 renderQuestion();
