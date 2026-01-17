@@ -4,119 +4,192 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Perfect Score – IELTS Preparation</title>
+  <meta name="description" content="Perfect Score is a structured IELTS preparation system combining video lessons, practice questions, and vocabulary training." />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-  <!-- NAVBAR -->
-  <header class="navbar">
-    <div class="nav-container">
-      <a href="index.html" class="logo">
-        <img src="logo.png" alt="Perfect Score logo" />
-      </a>
-      <nav>
-        <a href="Study-plan.html">Study Plan</a>
-        <a href="resources.html">Resources</a>
-        <a href="dashboard.html">Dashboard</a>
-      </nav>
+<!-- =========================
+     NAVBAR
+     ========================= -->
+<header class="navbar">
+  <div class="nav-inner">
+    <!-- Logo (clickable) -->
+    <a href="index.html" class="brand" aria-label="Go to homepage">
+      <img id="siteLogo" src="logo.png" alt="Perfect Score logo" />
+    </a>
+
+    <!-- Navigation -->
+    <nav class="nav" aria-label="Primary">
+      <a href="roadmap.html">Roadmap</a>
+      <a href="dashboard.html">Dashboard</a>
+      <a href="resources.html">Resources</a>
+
+      <!-- Theme toggle (handled by theme.js) -->
+      <button id="themeToggle" class="btn btn-ghost icon-btn" type="button" aria-label="Toggle dark mode">
+        🌙
+      </button>
+    </nav>
+  </div>
+</header>
+
+<!-- =========================
+     HERO
+     ========================= -->
+<section class="hero">
+  <div class="container center">
+    <h1>IELTS preparation, without confusion.</h1>
+    <p>
+      Perfect Score gives you one clear structure for improving:
+      <strong>Reading</strong>, <strong>Listening</strong>,
+      <strong>Writing</strong>, <strong>Speaking</strong>, and
+      <strong>Vocabulary</strong>.
+    </p>
+
+    <div class="hero-actions">
+      <a href="study-plan.html" class="btn btn-primary">View your roadmap</a>
+      <a href="dashboard.html" class="btn">Go to dashboard</a>
     </div>
-  </header>
+  </div>
+</section>
 
-  <!-- HERO -->
-  <section class="hero">
-    <h1>IELTS preparation, done properly.</h1>
+<!-- =========================
+     PRODUCT PILLARS
+     ========================= -->
+<section class="section">
+  <div class="container">
+    <h2>One roadmap. Three learning modes.</h2>
     <p>
-      One integrated system that combines  
-      <strong>video lessons</strong>, <strong>real practice</strong>, and
-      <strong>vocabulary mastery</strong> — all guided by a smart study plan.
-    </p>
-    <a class="btn-primary" href="study-plan.html">Create your study plan</a>
-  </section>
-
-  <!-- CORE IDEA -->
-  <section class="section">
-    <h2>One study plan. Three learning modes.</h2>
-    <p>
-      Most IELTS platforms overwhelm you with content.  
-      Perfect Score keeps everything structured and connected.
+      Most IELTS sites dump content on you. Perfect Score connects lessons,
+      practice, and vocabulary so you always know what to do next.
     </p>
 
-    <div class="cards">
-      <div class="card">
+    <div class="grid">
+      <div class="card col-4">
         <h3>🎥 Video Lessons</h3>
         <p>
-          Clear explanations for every IELTS module.
-          Watch first, understand the strategy, then move on.
+          Short, focused explanations for each module.
+          Learn the strategy before attempting questions.
         </p>
       </div>
 
-      <div class="card">
+      <div class="card col-4">
         <h3>📝 Practice Questions</h3>
         <p>
-          IELTS-style questions with accuracy tracking.
-          See what you get right — and what needs work.
+          IELTS-style practice with scoring and review.
+          Track weak areas and improve accuracy.
         </p>
       </div>
 
-      <div class="card">
+      <div class="card col-4">
         <h3>🧠 Vocabulary Training</h3>
         <p>
-          MCQ-based practice plus advanced flashcards
-          using spaced repetition techniques.
+          Use MCQs for recognition and flashcards for recall.
+          The system helps you retain words long-term.
         </p>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- STUDY PLAN EXPLANATION -->
-  <section class="section">
-    <h2>A plan that fits your timeline</h2>
+<!-- =========================
+     HOW IT WORKS
+     ========================= -->
+<section class="section">
+  <div class="container">
+    <h2>How Perfect Score works</h2>
     <p>
-      Whether you have <strong>1 week</strong> or <strong>6 months</strong>,
-      the content stays the same — only the pace changes.
+      A simple loop: understand → apply → retain.
+      Repetition and consistency matter more than random long sessions.
     </p>
 
-    <div class="cards">
-      <div class="card">
-        <h3>Flexible duration</h3>
+    <div class="grid">
+      <div class="card col-4">
+        <h3>1) Learn</h3>
         <p>
-          Choose from short crash plans to long-term preparation.
-          The system automatically adjusts your daily workload.
+          Start with a lesson (video) to understand the pattern,
+          strategy, or rule behind the question type.
         </p>
       </div>
 
-      <div class="card">
-        <h3>Daily structure</h3>
+      <div class="card col-4">
+        <h3>2) Practice</h3>
         <p>
-          Each study day includes:
-          a video lesson, practice questions, and vocabulary review.
+          Apply the strategy immediately using focused questions.
+          Review mistakes so you stop repeating them.
         </p>
       </div>
 
-      <div class="card">
-        <h3>Progress visibility</h3>
+      <div class="card col-4">
+        <h3>3) Review vocabulary</h3>
         <p>
-          Track completion, accuracy, and vocabulary strength
-          from your personal dashboard.
+          Build word knowledge through spaced repetition.
+          Small daily reviews beat cramming.
         </p>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- CTA -->
-  <section class="hero">
-    <h1>Study with clarity, not chaos.</h1>
+<!-- =========================
+     TIMELINE PROMISE (1 week → 6 months)
+     ========================= -->
+<section class="section">
+  <div class="container">
+    <h2>Works for 1 week to 6 months</h2>
     <p>
-      No distractions. No guesswork.  
-      Just a clear path to your IELTS goal.
+      The roadmap stays consistent. Your daily workload changes depending
+      on your timeline — shorter plans require more work per day.
     </p>
-    <a class="btn-primary" href="study-plan.html">Start now</a>
-  </section>
 
-  <!-- FOOTER -->
-  <footer class="footer">
+    <div class="grid">
+      <div class="card col-6">
+        <h3>Short plans (1–2 weeks)</h3>
+        <p>
+          Best for quick revision, test familiarity, and fixing common mistakes.
+          Not ideal for building a weak foundation from zero.
+        </p>
+      </div>
+
+      <div class="card col-6">
+        <h3>Long plans (1–6 months)</h3>
+        <p>
+          Best for deep improvement, consistent vocabulary growth,
+          and writing/speaking development over time.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =========================
+     FINAL CTA
+     ========================= -->
+<section class="hero">
+  <div class="container center">
+    <h1>Start with structure.</h1>
+    <p>
+      Use the roadmap to understand the path,
+      then rely on the dashboard for daily execution.
+    </p>
+
+    <div class="hero-actions">
+      <a href="roadmap.html" class="btn btn-primary">Explore the roadmap</a>
+      <a href="practice.html" class="btn">Try practice</a>
+    </div>
+  </div>
+</section>
+
+<!-- =========================
+     FOOTER
+     ========================= -->
+<footer class="footer">
+  <div class="container center">
     <p>© 2026 Perfect Score. Built for focused IELTS preparation.</p>
-  </footer>
+  </div>
+</footer>
 
+<!-- Theme + logo switching -->
+<script src="theme.js"></script>
 </body>
 </html>
