@@ -68,25 +68,12 @@ h4 {
   color: var(--text);
 }
 
-h1 {
-  font-size: clamp(2rem, 4vw, 2.75rem);
-}
+h1 { font-size: clamp(2rem, 4vw, 2.75rem); }
+h2 { font-size: clamp(1.6rem, 3vw, 2rem); }
+h3 { font-size: 1.15rem; }
+h4 { font-size: 1rem; }
 
-h2 {
-  font-size: clamp(1.6rem, 3vw, 2rem);
-}
-
-h3 {
-  font-size: 1.15rem;
-}
-
-h4 {
-  font-size: 1rem;
-}
-
-p {
-  margin: 0 0 1em 0;
-}
+p { margin: 0 0 1em 0; }
 
 .muted {
   color: var(--muted);
@@ -94,7 +81,7 @@ p {
 }
 
 /* =====================================================
-   LAYOUT HELPERS
+   LAYOUT
    ===================================================== */
 
 .container {
@@ -102,13 +89,9 @@ p {
   margin-inline: auto;
 }
 
-.center {
-  text-align: center;
-}
+.section { padding: 4rem 0; }
 
-.section {
-  padding: 4rem 0;
-}
+.center { text-align: center; }
 
 .row {
   display: flex;
@@ -122,7 +105,7 @@ p {
 }
 
 /* =====================================================
-   GRID SYSTEM
+   GRID
    ===================================================== */
 
 .grid {
@@ -131,17 +114,9 @@ p {
   margin-top: 2rem;
 }
 
-.col-12 {
-  grid-column: span 12;
-}
-
-.col-6 {
-  grid-column: span 6;
-}
-
-.col-4 {
-  grid-column: span 4;
-}
+.col-12 { grid-column: span 12; }
+.col-6 { grid-column: span 6; }
+.col-4 { grid-column: span 4; }
 
 @media (max-width: 900px) {
   .col-6,
@@ -176,6 +151,7 @@ p {
   width: auto;
   object-fit: contain;
   background: transparent;
+  mix-blend-mode: normal;
 }
 
 .nav {
@@ -210,11 +186,11 @@ p {
   text-decoration: none;
   font-weight: 500;
   cursor: pointer;
+  transition: background 0.15s ease, transform 0.1s ease;
 }
 
-.btn:hover {
-  background: var(--bg-soft);
-}
+.btn:hover { background: var(--bg-soft); }
+.btn:active { transform: scale(0.98); }
 
 .btn-primary {
   background: var(--primary);
@@ -223,7 +199,7 @@ p {
 }
 
 .btn-primary:hover {
-  opacity: 0.95;
+  filter: brightness(1.05);
 }
 
 .btn-ghost {
@@ -231,29 +207,13 @@ p {
   border: none;
 }
 
+.icon-btn { font-size: 1.1rem; }
+
+/* Touch targets */
+.btn,
+.nav a,
 .icon-btn {
-  font-size: 1.1rem;
-}
-
-/* =====================================================
-   HERO
-   ===================================================== */
-
-.hero {
-  padding: 6rem 0;
-  background: linear-gradient(
-    180deg,
-    var(--bg),
-    var(--bg-soft)
-  );
-}
-
-.hero-actions {
-  margin-top: 2rem;
-  display: flex;
-  gap: 1rem;
-  justify-content: center;
-  flex-wrap: wrap;
+  min-height: 44px;
 }
 
 /* =====================================================
@@ -266,35 +226,16 @@ p {
   border-radius: 14px;
   padding: 1.8rem;
   box-shadow: var(--shadow);
+  transition: transform 0.15s ease;
 }
-/* Highlight primary focus card (Today’s Study) */
+
+.card:hover {
+  transform: translateY(-2px);
+}
+
 .card.primary {
   border-color: var(--primary);
   box-shadow: 0 14px 30px rgba(37, 99, 235, 0.15);
-}
-/* =====================================================
-   ROADMAP / PLAN
-   ===================================================== */
-
-.plan {
-  margin-top: 2rem;
-}
-
-.plan-item {
-  border-left: 3px solid var(--primary);
-  padding-left: 1.5rem;
-  margin-bottom: 1.5rem;
-}
-
-.plan-item .title {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.plan-item .meta {
-  font-size: 0.9rem;
-  color: var(--muted);
 }
 
 /* =====================================================
@@ -360,70 +301,6 @@ p {
 }
 
 /* =====================================================
-   RESPONSIVE TUNING
-   ===================================================== */
-
-@media (max-width: 900px) {
-  .brand img {
-    height: 72px;
-  }
-}
-
-@media (max-width: 520px) {
-  .brand img {
-    height: 64px;
-  }
-
-  .hero {
-    padding: 4rem 0;
-  }
-
-  .nav {
-    gap: 1rem;
-  }
-}
-<section class="section">
-  <div class="container">
-    <h2>Your progress</h2>
-    <p class="muted">
-      Progress is cumulative. Small daily work compounds.
-    </p>
-
-    <!-- Progress bar -->
-    <div class="progress-wrap">
-      <div class="progress-meta">
-        <span>Study days completed</span>
-        <span><strong>12</strong> / 30</span>
-      </div>
-
-      <div class="progress-bar">
-        <div class="progress-fill" style="width: 40%;"></div>
-      </div>
-    </div>
-
-    <!-- Stats -->
-    <div class="grid" style="margin-top: 2rem;">
-      <div class="card col-4">
-        <h3>Current streak</h3>
-        <p><strong>5 days</strong></p>
-        <p class="muted">Consistency is building</p>
-      </div>
-
-      <div class="card col-4">
-        <h3>Vocabulary retention</h3>
-        <p><strong>Moderate</strong></p>
-        <p class="muted">Daily flashcards recommended</p>
-      </div>
-
-      <div class="card col-4">
-        <h3>Accuracy trend</h3>
-        <p><strong>Improving</strong></p>
-        <p class="muted">Last 7 days</p>
-      </div>
-    </div>
-  </div>
-</section>
-/* =====================================================
    BREADCRUMBS
    ===================================================== */
 
@@ -435,4 +312,27 @@ p {
 
 .breadcrumb span {
   margin: 0 0.3rem;
+}
+
+/* =====================================================
+   ACCESSIBILITY
+   ===================================================== */
+
+:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
+/* =====================================================
+   RESPONSIVE
+   ===================================================== */
+
+@media (max-width: 900px) {
+  .brand img { height: 72px; }
+}
+
+@media (max-width: 520px) {
+  .brand img { height: 64px; }
+  .nav { gap: 1rem; }
+  .section { padding: 3rem 0; }
 }
