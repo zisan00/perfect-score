@@ -2,52 +2,143 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Vocabulary MCQs – Perfect Score</title>
+  <meta name="description" content="Vocabulary multiple-choice questions to test recognition of IELTS-level words." />
   <link rel="stylesheet" href="style.css" />
   <script defer src="vocab-mcq.js"></script>
 </head>
 <body>
 
+<!-- =========================
+     NAVBAR
+     ========================= -->
 <header class="navbar">
-  <div class="nav-container">
-    <a href="index.html" class="logo">
-      <img src="logo.png" alt="Perfect Score logo">
+  <div class="nav-inner">
+    <a href="index.html" class="brand" aria-label="Go to homepage">
+      <img id="siteLogo" src="logo.png" alt="Perfect Score logo" />
     </a>
-    <nav>
-      <a href="vocabulary.html">Vocabulary</a>
+
+    <nav class="nav" aria-label="Primary">
+      <a href="roadmap.html">Roadmap</a>
       <a href="dashboard.html">Dashboard</a>
+      <a href="vocabulary.html">Vocabulary</a>
+      <a href="resources.html">Resources</a>
+      <button
+        id="themeToggle"
+        class="btn btn-ghost icon-btn"
+        type="button"
+        aria-label="Toggle dark mode"
+      >
+        🌙
+      </button>
     </nav>
   </div>
 </header>
 
-<main class="container">
-  <h1>Vocabulary MCQs</h1>
-  <p class="muted">Quick practice. Stats saved automatically.</p>
+<!-- =========================
+     PAGE INTRO
+     ========================= -->
+<section class="section">
+  <div class="container">
+    <div class="breadcrumb">
+  Dashboard <span>→</span> Practice
+</div>
+    <h2>Vocabulary MCQs</h2>
+    <p>
+      This mode tests whether you can recognise
+      the correct meaning of a word.
+    </p>
+    <p class="muted">
+      Don’t rush. Accuracy and pattern recognition matter more than speed.
+    </p>
+  </div>
+</section>
 
-  <div class="card" id="mcqCard">
-    <h3 id="wordTitle">Word</h3>
-    <p id="promptText">Loading...</p>
-    <div id="mcqOptions"></div>
+<!-- =========================
+     MCQ PRACTICE AREA
+     ========================= -->
+<section class="section">
+  <div class="container">
 
-    <div class="row" style="margin-top:16px;">
-      <span id="mcqProgress" class="muted"></span>
-      <button class="btn-outline" id="mcqSkip" type="button">Skip</button>
+    <!-- ACTIVE MCQ CARD -->
+    <div class="card col-12" id="mcqCard">
+      <div class="stack-sm">
+        <p class="muted" id="mcqProgress">
+          Item 1 of 10
+        </p>
+
+        <h3 id="wordTitle">
+          Word
+        </h3>
+
+        <p id="promptText">
+          Loading…
+        </p>
+      </div>
+
+      <!-- OPTIONS -->
+      <div
+        id="mcqOptions"
+        class="stack-sm"
+        style="margin-top:18px;"
+      >
+        <!-- Option buttons injected by vocab-mcq.js -->
+      </div>
+
+      <!-- ACTIONS -->
+      <div class="row" style="margin-top:22px;">
+        <span class="muted">
+          Choose the closest meaning
+        </span>
+
+        <button
+          id="mcqSkip"
+          class="btn"
+          type="button"
+        >
+          Skip
+        </button>
+      </div>
     </div>
-  </div>
 
-  <div class="card" id="mcqResult" style="display:none; margin-top:20px;">
-    <h3>Result</h3>
-    <p id="mcqScore"></p>
-    <p class="muted" id="mcqTotals"></p>
-    <a class="btn-primary" href="vocab-mcq.html">Retry</a>
-    <a class="btn-outline" href="vocabulary.html">Back</a>
-  </div>
-</main>
+    <!-- =========================
+         RESULT SUMMARY
+         ========================= -->
+    <div
+      class="card col-12"
+      id="mcqResult"
+      style="display:none; margin-top:28px;"
+    >
+      <h3>Session summary</h3>
 
+      <div class="stack-sm" style="margin-top:14px;">
+        <p id="mcqScore"></p>
+        <p id="mcqTotals" class="muted"></p>
+      </div>
+
+      <div class="row" style="margin-top:24px;">
+        <a href="vocab-mcq.html" class="btn btn-primary">
+          Practice again
+        </a>
+        <a href="vocabulary.html" class="btn">
+          Back to vocabulary
+        </a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- =========================
+     FOOTER
+     ========================= -->
 <footer class="footer">
-  <p>© 2026 Perfect Score</p>
+  <div class="container center">
+    <p>© 2026 Perfect Score. Recognition leads to recall.</p>
+  </div>
 </footer>
 
+<script src="theme.js"></script>
 </body>
 </html>
