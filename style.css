@@ -1,7 +1,6 @@
-/* =====================================================
-   RESET & BASE
-   ===================================================== */
-
+/* =========================
+   CSS RESET
+========================= */
 *,
 *::before,
 *::after {
@@ -19,15 +18,15 @@ body {
   line-height: 1.6;
   background: var(--bg);
   color: var(--text);
+  transition: background 0.3s ease, color 0.3s ease;
 }
 
-/* =====================================================
+/* =========================
    THEME VARIABLES
-   ===================================================== */
-
+========================= */
 :root {
-  --bg: #ffffff;
-  --bg-soft: #f6f7f9;
+  --bg: #f8fafc;
+  --bg-soft: #eef2f7;
   --card: #ffffff;
   --border: #e5e7eb;
 
@@ -35,106 +34,52 @@ body {
   --muted: #64748b;
 
   --primary: #2563eb;
-  --primary-soft: #eff6ff;
+  --primary-soft: #e0e7ff;
 
-  --shadow: 0 10px 25px rgba(0, 0, 0, 0.06);
+  --shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
 }
 
+/* Soft dark mode (NOT black) */
 [data-theme="dark"] {
-  --bg: #0b1220;
-  --bg-soft: #111827;
-  --card: #0f172a;
+  --bg: #0f172a;
+  --bg-soft: #1e293b;
+  --card: #111827;
   --border: #1f2937;
 
   --text: #e5e7eb;
-  --muted: #94a3b8;
+  --muted: #9ca3af;
 
   --primary: #60a5fa;
-  --primary-soft: #0b1f3a;
+  --primary-soft: #1e3a8a;
 
-  --shadow: 0 10px 25px rgba(0, 0, 0, 0.35);
+  --shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
 }
 
-/* =====================================================
-   TYPOGRAPHY
-   ===================================================== */
-
-h1,
-h2,
-h3,
-h4 {
-  line-height: 1.25;
-  margin: 0 0 0.6em 0;
-  color: var(--text);
-}
-
-h1 { font-size: clamp(2rem, 4vw, 2.75rem); }
-h2 { font-size: clamp(1.6rem, 3vw, 2rem); }
-h3 { font-size: 1.15rem; }
-h4 { font-size: 1rem; }
-
-p { margin: 0 0 1em 0; }
-
-.muted {
-  color: var(--muted);
-  font-size: 0.95rem;
-}
-
-/* =====================================================
+/* =========================
    LAYOUT
-   ===================================================== */
-
+========================= */
 .container {
   width: min(1100px, 92%);
   margin-inline: auto;
 }
 
-.section { padding: 4rem 0; }
-
-.center { text-align: center; }
-
-.row {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 1rem;
+.section {
+  padding: 4rem 0;
 }
 
-.stack-sm > * + * {
-  margin-top: 0.6rem;
+.center {
+  text-align: center;
 }
 
-/* =====================================================
-   GRID
-   ===================================================== */
-
-.grid {
-  display: grid;
-  gap: 1.5rem;
-  margin-top: 2rem;
-}
-
-.col-12 { grid-column: span 12; }
-.col-6 { grid-column: span 6; }
-.col-4 { grid-column: span 4; }
-
-@media (max-width: 900px) {
-  .col-6,
-  .col-4 {
-    grid-column: span 12;
-  }
-}
-
-/* =====================================================
-   NAVBAR
-   ===================================================== */
-
+/* =========================
+   NAVBAR + DROPDOWN
+========================= */
 .navbar {
   position: sticky;
   top: 0;
-  z-index: 100;
   background: var(--bg);
   border-bottom: 1px solid var(--border);
+  z-index: 100;
 }
 
 .nav-inner {
@@ -147,192 +92,167 @@ p { margin: 0 0 1em 0; }
 }
 
 .brand img {
-  height: 180px;
-  width: auto;
-  object-fit: contain;
+  height: 64px;
+}
+
+/* Dropdown */
+.menu {
+  position: relative;
+}
+
+.menu-btn {
   background: transparent;
-  mix-blend-mode: normal;
+  border: none;
+  font-size: 1.4rem;
+  cursor: pointer;
+  color: var(--text);
 }
 
-.nav {
-  display: flex;
-  align-items: center;
-  gap: 1.5rem;
+.menu-content {
+  position: absolute;
+  right: 0;
+  top: 48px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+  padding: 0.6rem;
+  min-width: 180px;
+  display: none;
+  animation: fadeIn 0.2s ease;
 }
 
-.nav a {
+.menu-content a,
+.menu-content button {
+  display: block;
+  padding: 0.6rem 0.8rem;
+  border-radius: 8px;
   text-decoration: none;
   color: var(--text);
-  font-weight: 500;
+  background: transparent;
+  border: none;
+  text-align: left;
+  width: 100%;
+  cursor: pointer;
 }
 
-.nav a:hover {
-  color: var(--primary);
+.menu-content a:hover,
+.menu-content button:hover {
+  background: var(--bg-soft);
 }
 
-/* =====================================================
-   BUTTONS
-   ===================================================== */
+.menu.open .menu-content {
+  display: block;
+}
 
-.btn {
-  display: inline-flex;
-  align-items: center;
+/* =========================
+   HERO
+========================= */
+.hero {
+  padding: 6rem 0;
+  background: linear-gradient(
+    180deg,
+    var(--bg),
+    var(--bg-soft)
+  );
+  animation: slideUp 0.6s ease;
+}
+
+.hero-actions {
+  margin-top: 2rem;
+  display: flex;
+  gap: 1rem;
   justify-content: center;
-  padding: 0.55rem 1.1rem;
-  border-radius: 8px;
+}
+
+/* =========================
+   BUTTONS + ANIMATIONS
+========================= */
+.btn {
+  padding: 0.6rem 1.2rem;
+  border-radius: 10px;
   border: 1px solid var(--border);
   background: var(--card);
   color: var(--text);
-  text-decoration: none;
   font-weight: 500;
   cursor: pointer;
-  transition: background 0.15s ease, transform 0.1s ease;
+  transition:
+    transform 0.1s ease,
+    background 0.2s ease;
 }
 
-.btn:hover { background: var(--bg-soft); }
-.btn:active { transform: scale(0.98); }
+.btn:hover {
+  background: var(--bg-soft);
+}
+
+.btn:active {
+  transform: scale(0.96);
+}
 
 .btn-primary {
   background: var(--primary);
-  color: #ffffff;
+  color: #fff;
   border-color: var(--primary);
 }
 
-.btn-primary:hover {
-  filter: brightness(1.05);
-}
-
-.btn-ghost {
-  background: transparent;
-  border: none;
-}
-
-.icon-btn { font-size: 1.1rem; }
-
-/* Touch targets */
-.btn,
-.nav a,
-.icon-btn {
-  min-height: 44px;
-}
-
-/* =====================================================
+/* =========================
    CARDS
-   ===================================================== */
-
+========================= */
 .card {
   background: var(--card);
+  border-radius: 16px;
   border: 1px solid var(--border);
-  border-radius: 14px;
-  padding: 1.8rem;
-  box-shadow: var(--shadow);
-  transition: transform 0.15s ease;
-}
-
-.card:hover {
-  transform: translateY(-2px);
-}
-
-.card.primary {
-  border-color: var(--primary);
-  box-shadow: 0 14px 30px rgba(37, 99, 235, 0.15);
-}
-
-/* =====================================================
-   FLASHCARDS
-   ===================================================== */
-
-.flash-wrap {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.flash {
-  width: 100%;
-  max-width: 420px;
-  height: 220px;
-  perspective: 1200px;
-  cursor: pointer;
-}
-
-.flash-face {
-  position: absolute;
-  inset: 0;
-  backface-visibility: hidden;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   padding: 1.5rem;
-  border-radius: 14px;
-  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+  animation: fadeIn 0.4s ease;
+}
+
+/* =========================
+   FLASHCARDS
+========================= */
+.flash {
   background: var(--card);
-  font-size: 1.1rem;
-  text-align: center;
+  padding: 2rem;
+  border-radius: 20px;
+  box-shadow: var(--shadow);
+  transition: transform 0.2s ease;
 }
 
-.flash-back {
-  transform: rotateY(180deg);
+.flash:hover {
+  transform: translateY(-4px);
 }
 
-.flash.flipped .flash-front {
-  transform: rotateY(180deg);
-}
-
-.flash.flipped .flash-back {
-  transform: rotateY(360deg);
-}
-
-.flash-actions {
-  margin-top: 1.2rem;
-  display: flex;
-  gap: 0.8rem;
-}
-
-/* =====================================================
+/* =========================
    FOOTER
-   ===================================================== */
-
+========================= */
 .footer {
   border-top: 1px solid var(--border);
   padding: 2rem 0;
-  font-size: 0.9rem;
+  text-align: center;
   color: var(--muted);
 }
 
-/* =====================================================
-   BREADCRUMBS
-   ===================================================== */
-
-.breadcrumb {
-  font-size: 0.85rem;
-  color: var(--muted);
-  margin-bottom: 0.6rem;
+/* =========================
+   ANIMATIONS
+========================= */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
 }
 
-.breadcrumb span {
-  margin: 0 0.3rem;
-}
-
-/* =====================================================
-   ACCESSIBILITY
-   ===================================================== */
-
-:focus-visible {
-  outline: 2px solid var(--primary);
-  outline-offset: 2px;
-}
-
-/* =====================================================
-   RESPONSIVE
-   ===================================================== */
-
-@media (max-width: 900px) {
-  .brand img { height: 72px; }
-}
-
-@media (max-width: 520px) {
-  .brand img { height: 64px; }
-  .nav { gap: 1rem; }
-  .section { padding: 3rem 0; }
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
 }
